@@ -1,0 +1,26 @@
+version: '2.3'
+
+services:
+  portainer:
+    image: "ewomail/ewomail"
+    container_name: "ewomail"
+    hostname: "ewomail"
+    restart: always 
+    ports:
+      - "0.0.0.0:2210:22"
+      - "0.0.0.0:25:25"
+      - "0.0.0.0:109:109"
+      - "0.0.0.0:110:110"
+      - "0.0.0.0:143:143"
+      - "0.0.0.0:465:465"
+      - "0.0.0.0:587:587"
+      - "0.0.0.0:993:993"
+      - "0.0.0.0:995:995"
+      - "127.0.0.1:8010:8000"
+      - "127.0.0.1:8011:8010"
+      - "127.0.0.1:8012:8020"
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    privileged: true
+    tty: true
+    stdin_open: true
