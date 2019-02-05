@@ -1,7 +1,7 @@
 FROM centos:7
 ENV container docker
 RUN yum clean all && rm -rf /var/cache/yum && \
-yum update -y && yum install git curl wget vim nano openssh-server openssh-client -y && \
+yum update -y && yum install git curl wget vim nano net-tools openssh-server openssh-client -y && \
 git clone https://github.com/EwoMail/EwoMail && cd EwoMail/install && sh start.sh ewomail.cn && \
 yum erase git -y && yum clean all && rm -rf /var/cache/yum && \
 touch /var/log/secure /etc/sysconfig/network && \
